@@ -1,0 +1,17 @@
+1. db.patients.find({status:"Admitted"},{name:1,_id:0});
+2. db.doctors.find({experience:{$gt:10}},{name:1,_id:0});
+3. db.patients.find({diagnosis:"Diabetes"},{name:1,patientId:1,diagnosis:1,medications:1});
+4. db.doctors.find({"schedule.shift":"Morning"},{name: 1,_id:0});
+5. db.patients.find({"ward.type":"ICU"},{name: 1,_id:0});
+6. db.doctors.find({"schedule.days":"Monday"}, {name: 1,_id:0});
+7. db.patients.find({"ward.number":"W101"}, { name: 1,_id:0});
+8. db.doctors.find({expertise:{$all:["COPD","Asthma"]}},{name: 1,_id:0});
+9. db.patients.find({"diagnosis.1":{$exists:true}},{name: 1,_id:0});
+10. db.doctors.find({department:"Internal Medicine"},{name: 1,_id:0});
+11. db.patients.updateOne({patientId: "P101" },{$push:{ medications: "Metformin"}});
+12. db.doctors.updateOne({doctorId: "DOC001"},{$set:{"schedule.consultingRoom":"R201"}});
+13. db.patients.updateOne({patientId:"P101"},{$set:{status:"Discharged"}});
+14. db.doctors.updateOne({doctorId:"DOC001"},{$set:{isAvailable:false}});
+15. db.patients.deleteMany({status:"Discharged"});
+16. db.patients.deleteMany({insuranceActive: false});
+17. db.patients.updateOne({patientId: "P101" },{$pull:{medications:"Insulin"}});
